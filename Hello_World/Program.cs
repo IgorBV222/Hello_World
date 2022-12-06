@@ -2,19 +2,42 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace Hello_World
 {
     internal class Program
     {
+        static void PrintName(string _name, string _order = "")
+        {
+            Console.WriteLine("Hello, \n");
+            if (_order == "-")
+            {
+                for (int i = _name.Length - 1; i >= 0; i--)
+                {
+                    Console.Write(_name[i] + "\n");
+                }
+            }
+            else
+            {
+                for (int i = 0; i < _name.Length; i++)
+                {
+                    Console.Write(_name[i] + "\n");
+                }
+            }  
+                
+            Console.WriteLine("!");
+        }
+
         static void Main(string[] args)
         {
             string name = "";
+            string order;
             try
             {
-                name = args[0];                
+                name = args[0];
+                order = args[1];
             }
             catch
             {
@@ -23,13 +46,7 @@ namespace Hello_World
             }
             finally
             {
-                //Console.WriteLine("Hello, {0}! ", name);
-                Console.WriteLine("Hello, \n");
-                for (int i = 0; i < name.Length; i++)
-                {
-                    Console.Write(name[i] + "\n");
-                }
-                Console.WriteLine("!");
+                PrintName(name);
             }
             Console.ReadKey();
 
